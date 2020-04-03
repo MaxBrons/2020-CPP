@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+
 class Vector2d
 {
 public:
@@ -12,6 +13,7 @@ public:
 	int GetY();
 	float GetMagnitude();
 	bool operator== (Vector2d v1);
+	Vector2d operator-(Vector2d v1);
 	
 	/*bool operator>(Vector2d v1);
 	bool operator<(Vector2d v1);*/

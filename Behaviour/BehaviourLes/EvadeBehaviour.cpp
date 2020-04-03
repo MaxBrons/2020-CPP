@@ -1,5 +1,4 @@
 #include "EvadeBehaviour.h"
-#include "Vector2d.h"
 
 EvadeBehaviour::EvadeBehaviour()
 {
@@ -9,15 +8,21 @@ EvadeBehaviour::~EvadeBehaviour()
 {
 }
 
-Vector2d EvadeBehaviour::Update(Vector2d ownPosition, Vector2d targetPosition, Vector2d minPosition = {1,1}, Vector2d maxPosition)
+Vector2d EvadeBehaviour::Update(Vector2d ownPosition, Vector2d targetPosition, Vector2d minPosition, Vector2d maxPosition , float gap)
 {
-	if (abs(ownPosition - targetPosition) < 5) {
-
-		if (ownPosition < targetPosition && ownPosition > minPosition) {
-			return ownPosition -1;
+	if ((ownPosition - targetPosition).GetMagnitude() < gap)
+	{
+		if (ownPosition.GetX() < targetPosition.GetX() && ownPosition.GetX() > minPosition.GetX()) {
+			ownPosition = Vector2d(ownPosition.GetX() - 1, ownPosition.GetY());
 		}
-		else if (ownPosition > targetPosition&& ownPosition < maxPosition) {
-			return ownPosition +1;
+		else if (ownPosition.GetX() < targetPosition.GetX() && ownPosition.GetX() > maxPosition.GetX()) {
+			ownPosition = Vector2d(ownPosition.GetX() + 1, ownPosition.GetY());
+		}
+		else if (ownPosition.GetY() < targetPosition.GetY() && ownPosition.GetY() > minPosition.GetY()) {
+			ownPosition = Vector2d(ownPosition.GetX(), ownPosition.GetY() - 1);
+		}
+		else if (ownPosition.GetY() < targetPosition.GetY() && ownPosition.GetY() > maxPosition.GetY()) {
+			ownPosition = Vector2d(ownPosition.GetX(), ownPosition.GetY() + 1);
 		}
 	}
 	return ownPosition;

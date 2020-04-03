@@ -40,13 +40,7 @@ bool Vector2d::operator==(Vector2d v1)
 	return (x == v1.GetX(), y == v1.GetY());
 }
 
-/*bool Vector2d::operator>(Vector2d v1)
-{
-	return false;
+Vector2d Vector2d::operator-(Vector2d v1) {
+	return Vector2d(x - v1.GetX(), y - v1.GetY());
 }
-
-bool Vector2d::operator<(Vector2d v1)
-{
-	return false;
-}*/
 

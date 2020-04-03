@@ -16,8 +16,8 @@ public:
 		EVADE
 	};
 public:
-	Character(AvailableBehaviours aStartBehaviour, 
-		Vector2d* aStartPosition = nullptr, 
+	Character(AvailableBehaviours aStartBehaviour,
+		Vector2d aStartPosition = { 0, 0 },
 		std::string anIcon = "x",
 		Character* aTarget = nullptr
 	);
