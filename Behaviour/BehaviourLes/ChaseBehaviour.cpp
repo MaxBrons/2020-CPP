@@ -1,4 +1,5 @@
 #include "ChaseBehaviour.h"
+#include "Vector2d.h"
 
 
 ChaseBehaviour::ChaseBehaviour()
@@ -9,7 +10,7 @@ ChaseBehaviour::~ChaseBehaviour()
 {
 }
 
-int ChaseBehaviour::Update(int ownPosition, int targetPosition, int minPosition, int maxPosition)
+Vector2d ChaseBehaviour::Update(Vector2d ownPosition, Vector2d targetPosition, Vector2d minPosition = {1,1}, Vector2d maxPosition)
 {
 
 	if (ownPosition < targetPosition && ownPosition < maxPosition) {

@@ -1,16 +1,16 @@
 #include "Behaviour.h"
 #include "Character.h"
+#include "Vector2d.h"
 
 Behaviour::Behaviour()
 {
-
 }
 
 Behaviour::~Behaviour()
 {
 }
 
-int Behaviour::Update(int ownPosition, int targetPosition, int minPosition, int maxPosition)
+Vector2d Behaviour::Update(Vector2d* ownPosition, Vector2d* targetPosition, Vector2d* minPosition, Vector2d* maxPosition)
 {
 	return 0;
 }

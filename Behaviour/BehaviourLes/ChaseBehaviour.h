@@ -7,6 +7,6 @@ class ChaseBehaviour :
 public:
 	ChaseBehaviour();
 	~ChaseBehaviour();
-	int Update(int ownPosition, int targetPosition, int minPosition = 0, int maxPosition = 100);
+	Vector2d Update(Vector2d ownPosition, Vector2d targetPosition, Vector2d minPosition, Vector2d maxPosition);
 };
 

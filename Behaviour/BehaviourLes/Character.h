@@ -2,6 +2,7 @@
 #include <string>
 #include <cmath>
 #include <typeinfo>
+#include "Vector2d.h"
 #include "Behaviour.h"
 #include "ChaseBehaviour.h"
 #include "EvadeBehaviour.h"
@@ -16,20 +17,20 @@ public:
 	};
 public:
 	Character(AvailableBehaviours aStartBehaviour, 
-		int aStartPosition = 0, 
+		Vector2d* aStartPosition = nullptr, 
 		std::string anIcon = "x",
 		Character* aTarget = nullptr
 	);
 	~Character();
 	void SetTarget(Character* aTarget);
 	void Setbehaviour(AvailableBehaviours aBehaviour);
-	int Update();
-	int GetPosition();
+	Vector2d Update();
+	Vector2d GetPosition();
 	std::string GetIcon();
 private:
 	Behaviour* currentBehaviour;
 	Character* target;
-	int position;
+	Vector2d position;
 	std::string icon;
 };
 

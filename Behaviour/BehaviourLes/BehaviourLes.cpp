@@ -14,13 +14,13 @@
 double delay = .1;
 double previousFrameTime = 0.0;
 int maxWidth = 100;
-std::vector<std::string> scene;
+std::vector<std::string,std::string> scene;
 bool running = true;
 int main()
 {
 	//Characters aanmaken
-	Character player(Character::AvailableBehaviours::IDLE, 20, "E");
-	Character enemy(Character::AvailableBehaviours::CHASE, 40, "C", &player);
+	Character player(Character::AvailableBehaviours::IDLE, new Vector2d(0,20), "E");
+	Character enemy(Character::AvailableBehaviours::CHASE, new Vector2d(0, 40), "C", &player);
 
 	//Game mechanics activeren
 	player.SetTarget(&enemy);
@@ -33,7 +33,6 @@ int main()
 	scene.resize(50);
 
 	//deze scene vullen met _
-
 	previousFrameTime = clock();
 	//de game zelf
 	while (running) {
@@ -43,16 +42,28 @@ int main()
 			system("cls");
 			//std::cout << "[" << clock() << "] updating" << std::endl;
 			for (Character* aCharacter : characters) {
-				scene.at(aCharacter->Update()) = aCharacter->GetIcon();
+				//scene.at(aCharacter->Update()) = aCharacter->GetIcon();
 			}
-			for (std::string s : scene) {
+			/*for (std::string s : scene) {
 				std::cout << s;
-			}
+			}*/
 
+			//[x][y]
+			std::vector<std::vector<std::string>> newScene{
+				{"~","`","&"},
+				{"*","$","^"}
+			};
+
+			for (int x = 0; x < newScene.size(); x++)
+			{
+				for (int y = 0; y < newScene.at(x).size(); y++) {
+
+				}
+			}
 
 			previousFrameTime = clock();
 		}
-		if (characters.at(0)->GetPosition() == characters.at(1)->GetPosition() - 2) {
+		if (characters.at(0)->GetPosition().GetX() == characters.at(1)->GetPosition().GetX() - 2) {
 			player.Setbehaviour(Character::AvailableBehaviours::CHASE);
 			enemy.Setbehaviour(Character::AvailableBehaviours::EVADE);
 			//running = false;

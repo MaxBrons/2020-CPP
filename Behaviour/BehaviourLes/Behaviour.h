@@ -6,6 +6,6 @@ class Behaviour
 public:
 	Behaviour();
 	~Behaviour();
-	virtual int Update(int ownPosition, int targetPosition, int minPosition = 0, int maxPosition = 100);
+	virtual Vector2d Update(Vector2d ownPosition, Vector2d targetPosition, Vector2d minPosition = nullptr, Vector2d maxPosition = nullptr);
 };
 
